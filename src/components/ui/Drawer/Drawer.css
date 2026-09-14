@@ -1,0 +1,451 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Drawer/Drawer.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Drawer / side-panel styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Overlay
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgb(16 16 16 / 55%);
+
+  animation: brika-drawer-overlay-enter var(--motion-duration-fast)
+    var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Panel
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__panel {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-background-surface);
+
+  box-shadow:
+    0 16px 48px rgb(0 0 0 / 16%),
+    0 4px 16px rgb(0 0 0 / 8%);
+
+  outline: none;
+
+  overflow: hidden;
+
+  animation-duration: var(--motion-duration-normal);
+
+  animation-timing-function: var(--motion-easing-standard);
+
+  animation-fill-mode: both;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Left / Right
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__panel--left,
+.brika-drawer__panel--right {
+  top: 0;
+  bottom: 0;
+
+  width: 100%;
+  max-height: 100%;
+}
+
+.brika-drawer__panel--left {
+  left: 0;
+
+  border-right: 1px solid var(--color-border-light);
+
+  animation-name: brika-drawer-left-enter;
+}
+
+.brika-drawer__panel--right {
+  right: 0;
+
+  border-left: 1px solid var(--color-border-light);
+
+  animation-name: brika-drawer-right-enter;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Top / Bottom
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__panel--top,
+.brika-drawer__panel--bottom {
+  right: 0;
+  left: 0;
+
+  width: 100%;
+  max-width: 100%;
+
+  max-height: 100%;
+}
+
+.brika-drawer__panel--top {
+  top: 0;
+
+  border-bottom: 1px solid var(--color-border-light);
+
+  animation-name: brika-drawer-top-enter;
+}
+
+.brika-drawer__panel--bottom {
+  bottom: 0;
+
+  border-top: 1px solid var(--color-border-light);
+
+  animation-name: brika-drawer-bottom-enter;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Horizontal sizes
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__panel--left.brika-drawer__panel--sm,
+.brika-drawer__panel--right.brika-drawer__panel--sm {
+  max-width: 320px;
+}
+
+.brika-drawer__panel--left.brika-drawer__panel--md,
+.brika-drawer__panel--right.brika-drawer__panel--md {
+  max-width: 420px;
+}
+
+.brika-drawer__panel--left.brika-drawer__panel--lg,
+.brika-drawer__panel--right.brika-drawer__panel--lg {
+  max-width: 560px;
+}
+
+.brika-drawer__panel--left.brika-drawer__panel--xl,
+.brika-drawer__panel--right.brika-drawer__panel--xl {
+  max-width: 720px;
+}
+
+.brika-drawer__panel--left.brika-drawer__panel--full,
+.brika-drawer__panel--right.brika-drawer__panel--full {
+  max-width: 100%;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Vertical sizes
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__panel--top.brika-drawer__panel--sm,
+.brika-drawer__panel--bottom.brika-drawer__panel--sm {
+  max-height: 280px;
+}
+
+.brika-drawer__panel--top.brika-drawer__panel--md,
+.brika-drawer__panel--bottom.brika-drawer__panel--md {
+  max-height: 400px;
+}
+
+.brika-drawer__panel--top.brika-drawer__panel--lg,
+.brika-drawer__panel--bottom.brika-drawer__panel--lg {
+  max-height: 560px;
+}
+
+.brika-drawer__panel--top.brika-drawer__panel--xl,
+.brika-drawer__panel--bottom.brika-drawer__panel--xl {
+  max-height: 720px;
+}
+
+.brika-drawer__panel--top.brika-drawer__panel--full,
+.brika-drawer__panel--bottom.brika-drawer__panel--full {
+  max-height: 100%;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Header
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--space-lg);
+
+  flex-shrink: 0;
+
+  padding: var(--space-xl) var(--space-xl) var(--space-lg);
+
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.brika-drawer__heading {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-xs);
+
+  min-width: 0;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Title
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__title {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+
+  letter-spacing: -0.2px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Description
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__description {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Close
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-secondary);
+  background-color: transparent;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.brika-drawer__close:hover {
+  color: var(--color-text-primary);
+
+  background-color: var(--color-background-secondary);
+}
+
+.brika-drawer__close:focus-visible {
+  border-color: var(--color-brand-accent);
+
+  box-shadow: 0 0 0 2px var(--color-brand-accent-light);
+}
+
+.brika-drawer__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Body
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__body {
+  flex: 1;
+
+  min-height: 0;
+
+  padding: var(--space-xl);
+
+  color: var(--color-text-primary);
+
+  overflow-y: auto;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Footer
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-drawer__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: var(--space-sm);
+
+  flex-shrink: 0;
+
+  padding: var(--space-lg) var(--space-xl);
+
+  border-top: 1px solid var(--color-border-light);
+
+  background-color: var(--color-background-surface);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Animations
+ * -----------------------------------------------------------------------------
+ */
+
+@keyframes brika-drawer-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes brika-drawer-left-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes brika-drawer-right-enter {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes brika-drawer-top-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brika-drawer-bottom-enter {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Mobile
+ * -----------------------------------------------------------------------------
+ */
+
+@media (max-width: 640px) {
+  .brika-drawer__panel--left,
+  .brika-drawer__panel--right {
+    max-width: calc(100% - 16px);
+  }
+
+  .brika-drawer__panel--left.brika-drawer__panel--full,
+  .brika-drawer__panel--right.brika-drawer__panel--full {
+    max-width: 100%;
+  }
+
+  .brika-drawer__header {
+    padding: var(--space-lg) var(--space-lg) var(--space-md);
+  }
+
+  .brika-drawer__body {
+    padding: var(--space-lg);
+  }
+
+  .brika-drawer__footer {
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-drawer,
+  .brika-drawer__panel {
+    animation: none;
+  }
+
+  .brika-drawer__close {
+    transition: none;
+  }
+}

@@ -1,0 +1,135 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/feedback/EmptyState/EmptyState.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Empty state styles.
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-md);
+
+  width: 100%;
+
+  min-height: 240px;
+
+  padding: var(--space-xxxl) var(--space-xl);
+
+  text-align: center;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Icon
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-empty-state__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid var(--color-border-light);
+
+  border-radius: var(--radius-md);
+
+  color: var(--color-text-secondary);
+
+  background-color: var(--color-background-secondary);
+}
+
+.brika-empty-state__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Content
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-empty-state__content {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-xs);
+
+  align-items: center;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Title
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-empty-state__title {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-sans);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+
+  letter-spacing: -0.1px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Description
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-empty-state__description {
+  max-width: 460px;
+
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Action
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-empty-state__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: var(--space-xs);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Extra
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-empty-state__extra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: var(--space-xs);
+}

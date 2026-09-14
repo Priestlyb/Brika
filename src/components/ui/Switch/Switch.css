@@ -1,0 +1,278 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Switch/Switch.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Switch styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Field
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  min-width: 0;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Switch
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch {
+  display: inline-flex;
+  align-items: flex-start;
+
+  gap: var(--space-sm);
+
+  width: fit-content;
+
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Control
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch__control {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 24px;
+
+  flex-shrink: 0;
+}
+
+.brika-switch__input {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+.brika-switch__track {
+  display: flex;
+  align-items: center;
+
+  width: 40px;
+  height: 24px;
+
+  padding: 2px;
+
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-pill);
+
+  background-color: var(--color-border-medium);
+
+  pointer-events: none;
+
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Thumb
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch__thumb {
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-background-surface);
+
+  box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+
+  transform: translateX(0);
+
+  transition:
+    transform var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Checked State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch__input:checked + .brika-switch__track {
+  border-color: var(--color-brand-accent);
+  background-color: var(--color-brand-accent);
+}
+
+.brika-switch__input:checked + .brika-switch__track .brika-switch__thumb {
+  transform: translateX(16px);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Hover
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch__input:hover:not(:disabled) + .brika-switch__track {
+  border-color: var(--color-text-tertiary);
+}
+
+.brika-switch__input:checked:hover:not(:disabled) + .brika-switch__track {
+  border-color: var(--color-brand-accent-dark);
+  background-color: var(--color-brand-accent-dark);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Focus
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch__input:focus-visible + .brika-switch__track {
+  border-color: var(--color-brand-accent);
+
+  box-shadow: 0 0 0 2px var(--color-brand-accent-light);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Content
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch__content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  min-width: 0;
+
+  padding-top: 1px;
+}
+
+.brika-switch__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.brika-switch__required {
+  color: var(--color-status-error);
+}
+
+.brika-switch__description {
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Error
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch-field--error .brika-switch__track {
+  border-color: var(--color-status-error);
+}
+
+.brika-switch-field--error
+  .brika-switch__input:focus-visible
+  + .brika-switch__track {
+  border-color: var(--color-status-error);
+
+  box-shadow: 0 0 0 2px var(--color-status-error-background);
+}
+
+.brika-switch__error {
+  margin: 0;
+  margin-left: 48px;
+
+  color: var(--color-status-error);
+
+  font-family: var(--font-family-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Disabled
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-switch-field--disabled .brika-switch {
+  cursor: not-allowed;
+}
+
+.brika-switch__input:disabled {
+  cursor: not-allowed;
+}
+
+.brika-switch__input:disabled + .brika-switch__track {
+  background-color: var(--color-background-secondary);
+  border-color: var(--color-border-light);
+
+  cursor: not-allowed;
+}
+
+.brika-switch__input:disabled + .brika-switch__track .brika-switch__thumb {
+  background-color: var(--color-text-muted);
+  box-shadow: none;
+}
+
+.brika-switch-field--disabled .brika-switch__label,
+.brika-switch-field--disabled .brika-switch__description {
+  color: var(--color-text-muted);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-switch__track,
+  .brika-switch__thumb {
+    transition: none;
+  }
+}

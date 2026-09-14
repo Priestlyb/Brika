@@ -1,0 +1,337 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Modal/Modal.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Modal / dialog styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Overlay
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: var(--space-lg);
+
+  background-color: rgb(16 16 16 / 55%);
+
+  overflow-y: auto;
+
+  animation: brika-modal-overlay-enter var(--motion-duration-fast)
+    var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Panel
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__panel {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-height: calc(100vh - 48px);
+
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+
+  background-color: var(--color-background-surface);
+
+  box-shadow:
+    0 24px 64px rgb(0 0 0 / 18%),
+    0 8px 24px rgb(0 0 0 / 10%);
+
+  outline: none;
+
+  overflow: hidden;
+
+  animation: brika-modal-panel-enter var(--motion-duration-normal)
+    var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Sizes
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__panel--sm {
+  max-width: 400px;
+}
+
+.brika-modal__panel--md {
+  max-width: 520px;
+}
+
+.brika-modal__panel--lg {
+  max-width: 680px;
+}
+
+.brika-modal__panel--xl {
+  max-width: 880px;
+}
+
+.brika-modal__panel--full {
+  max-width: none;
+  max-height: calc(100vh - 32px);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Header
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--space-lg);
+
+  padding: var(--space-xl) var(--space-xl) var(--space-lg);
+
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.brika-modal__heading {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-xs);
+
+  min-width: 0;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Title
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__title {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+
+  letter-spacing: -0.2px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Description
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__description {
+  margin: 0;
+
+  max-width: 560px;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Close Button
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-secondary);
+  background-color: transparent;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.brika-modal__close:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-background-secondary);
+}
+
+.brika-modal__close:focus-visible {
+  border-color: var(--color-brand-accent);
+
+  box-shadow: 0 0 0 2px var(--color-brand-accent-light);
+}
+
+.brika-modal__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Body
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__body {
+  flex: 1;
+
+  min-height: 0;
+
+  padding: var(--space-xl);
+
+  color: var(--color-text-primary);
+
+  overflow-y: auto;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Footer
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: var(--space-sm);
+
+  padding: var(--space-lg) var(--space-xl);
+
+  border-top: 1px solid var(--color-border-light);
+
+  background-color: var(--color-background-surface);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Animations
+ * -----------------------------------------------------------------------------
+ */
+
+@keyframes brika-modal-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes brika-modal-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Mobile
+ * -----------------------------------------------------------------------------
+ */
+
+@media (max-width: 640px) {
+  .brika-modal {
+    align-items: flex-end;
+
+    padding: 0;
+  }
+
+  .brika-modal__panel {
+    max-height: calc(100vh - 16px);
+
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .brika-modal__panel--sm,
+  .brika-modal__panel--md,
+  .brika-modal__panel--lg,
+  .brika-modal__panel--xl {
+    max-width: none;
+  }
+
+  .brika-modal__header {
+    padding: var(--space-lg) var(--space-lg) var(--space-md);
+  }
+
+  .brika-modal__body {
+    padding: var(--space-lg);
+  }
+
+  .brika-modal__footer {
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-modal,
+  .brika-modal__panel {
+    animation: none;
+  }
+
+  .brika-modal__close {
+    transition: none;
+  }
+}

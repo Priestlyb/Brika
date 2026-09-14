@@ -1,0 +1,355 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Toast/Toast.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Toast notification styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Base
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: var(--space-sm);
+
+  width: min(100%, 420px);
+
+  padding: var(--space-md);
+
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+
+  background-color: var(--color-background-surface);
+
+  box-shadow:
+    0 12px 32px rgb(0 0 0 / 12%),
+    0 4px 12px rgb(0 0 0 / 8%);
+
+  overflow: hidden;
+
+  animation: brika-toast-enter var(--motion-duration-normal)
+    var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Icon
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+}
+
+.brika-toast__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Content
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast__content {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-xs);
+
+  min-width: 0;
+
+  flex: 1;
+}
+
+.brika-toast__title {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.brika-toast__description {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Action
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast__action {
+  align-self: flex-start;
+
+  margin-top: var(--space-xs);
+
+  padding: 0;
+
+  border: 0;
+
+  color: inherit;
+  background: transparent;
+
+  font-family: var(--font-family-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  cursor: pointer;
+}
+
+.brika-toast__action:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Close
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  flex-shrink: 0;
+
+  margin-top: -2px;
+  margin-right: -2px;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+
+  color: var(--color-text-tertiary);
+  background: transparent;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.brika-toast__close:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-background-secondary);
+}
+
+.brika-toast__close:focus-visible {
+  border-color: var(--color-brand-accent);
+
+  box-shadow: 0 0 0 2px var(--color-brand-accent-light);
+}
+
+.brika-toast__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Success
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast--success {
+  border-color: var(--color-status-success-background);
+
+  background-color: var(--color-status-success-background);
+}
+
+.brika-toast--success .brika-toast__icon,
+.brika-toast--success .brika-toast__action {
+  color: var(--color-status-success);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Warning
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast--warning {
+  border-color: var(--color-status-warning-background);
+
+  background-color: var(--color-status-warning-background);
+}
+
+.brika-toast--warning .brika-toast__icon,
+.brika-toast--warning .brika-toast__action {
+  color: var(--color-status-warning);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Error
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast--error {
+  border-color: var(--color-status-error-background);
+
+  background-color: var(--color-status-error-background);
+}
+
+.brika-toast--error .brika-toast__icon,
+.brika-toast--error .brika-toast__action {
+  color: var(--color-status-error);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Info
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast--info {
+  border-color: var(--color-status-info-background);
+
+  background-color: var(--color-status-info-background);
+}
+
+.brika-toast--info .brika-toast__icon,
+.brika-toast--info .brika-toast__action {
+  color: var(--color-status-info);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Progress
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast__progress {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 2px;
+
+  background-color: currentColor;
+
+  transform-origin: left center;
+
+  animation-name: brika-toast-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  opacity: 0.5;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Persistent
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-toast--persistent {
+  animation: brika-toast-enter var(--motion-duration-normal)
+    var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Animation
+ * -----------------------------------------------------------------------------
+ */
+
+@keyframes brika-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brika-toast-progress {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Mobile
+ * -----------------------------------------------------------------------------
+ */
+
+@media (max-width: 640px) {
+  .brika-toast {
+    width: 100%;
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-toast {
+    animation: none;
+  }
+
+  .brika-toast__close {
+    transition: none;
+  }
+
+  .brika-toast__progress {
+    animation: none;
+  }
+}

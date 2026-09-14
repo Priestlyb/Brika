@@ -1,0 +1,277 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Select/Select.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Select styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Field
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  min-width: 0;
+}
+
+.brika-select-field--full-width {
+  width: 100%;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Label
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select-field__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.brika-select-field__required {
+  color: var(--color-status-error);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Wrapper
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Select
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select {
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-primary);
+  background-color: var(--color-background-surface);
+
+  font-family: var(--font-family-sans);
+
+  outline: none;
+
+  appearance: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard),
+    background-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Sizes
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select--sm {
+  min-height: 32px;
+
+  padding-inline: var(--space-md) var(--space-xxl);
+
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.brika-select--md {
+  min-height: 40px;
+
+  padding-inline: var(--space-lg) var(--space-xxl);
+
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.brika-select--lg {
+  min-height: 48px;
+
+  padding-inline: var(--space-xl) var(--space-xxxl);
+
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Icon
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select-wrapper__icon {
+  position: absolute;
+
+  top: 50%;
+  right: var(--space-md);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-text-secondary);
+
+  pointer-events: none;
+
+  transform: translateY(-50%);
+}
+
+.brika-select-wrapper__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Default State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select--default:hover:not(:disabled) {
+  border-color: var(--color-text-tertiary);
+}
+
+.brika-select--default:focus,
+.brika-select--default:focus-visible {
+  border-color: var(--color-brand-accent);
+
+  box-shadow: 0 0 0 2px var(--color-brand-accent-light);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Error State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select--error {
+  border-color: var(--color-status-error);
+}
+
+.brika-select--error:hover:not(:disabled) {
+  border-color: var(--color-status-error);
+}
+
+.brika-select--error:focus,
+.brika-select--error:focus-visible {
+  border-color: var(--color-status-error);
+
+  box-shadow: 0 0 0 2px var(--color-status-error-background);
+}
+
+.brika-select-wrapper--error .brika-select-wrapper__icon {
+  color: var(--color-status-error);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Success State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select--success {
+  border-color: var(--color-status-success);
+}
+
+.brika-select--success:hover:not(:disabled) {
+  border-color: var(--color-status-success);
+}
+
+.brika-select--success:focus,
+.brika-select--success:focus-visible {
+  border-color: var(--color-status-success);
+
+  box-shadow: 0 0 0 2px var(--color-status-success-background);
+}
+
+.brika-select-wrapper--success .brika-select-wrapper__icon {
+  color: var(--color-status-success);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Disabled
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select:disabled {
+  color: var(--color-text-muted);
+  background-color: var(--color-background-secondary);
+
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.brika-select-wrapper--disabled .brika-select-wrapper__icon {
+  color: var(--color-text-muted);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Messages
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-select-field__message {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.brika-select-field__message--error {
+  color: var(--color-status-error);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-select {
+    transition: none;
+  }
+}

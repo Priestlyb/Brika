@@ -1,0 +1,142 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Spinner/Spinner.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Spinner styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Base
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: var(--color-brand-primary);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Circle
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-spinner__circle {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+
+  border-radius: 50%;
+
+  animation: brika-spinner-rotate var(--motion-duration-slow) linear infinite;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Sizes
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-spinner--xs {
+  width: 12px;
+  height: 12px;
+}
+
+.brika-spinner--xs .brika-spinner__circle {
+  border-width: 1.5px;
+}
+
+.brika-spinner--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.brika-spinner--sm .brika-spinner__circle {
+  border-width: 1.5px;
+}
+
+.brika-spinner--md {
+  width: 24px;
+  height: 24px;
+}
+
+.brika-spinner--md .brika-spinner__circle {
+  border-width: 2px;
+}
+
+.brika-spinner--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.brika-spinner--lg .brika-spinner__circle {
+  border-width: 2px;
+}
+
+.brika-spinner--xl {
+  width: 48px;
+  height: 48px;
+}
+
+.brika-spinner--xl .brika-spinner__circle {
+  border-width: 3px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Variants
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-spinner--default {
+  color: var(--color-brand-primary);
+}
+
+.brika-spinner--accent {
+  color: var(--color-brand-accent);
+}
+
+.brika-spinner--inverse {
+  color: var(--color-text-inverse);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Animation
+ * -----------------------------------------------------------------------------
+ */
+
+@keyframes brika-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-spinner__circle {
+    animation-duration: 1.5s;
+  }
+}

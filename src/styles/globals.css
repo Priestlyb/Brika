@@ -1,0 +1,560 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/styles/globals.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Global application styles.
+ *
+ * Responsibilities:
+ *
+ * - Load the Brika Inter font family
+ * - Define global CSS custom properties
+ * - Define light and dark semantic theme tokens
+ * - Establish the document typography
+ * - Establish the application background and text colors
+ * - Provide global accessibility and interaction defaults
+ * - Provide reduced-motion support
+ *
+ * Browser normalization belongs in reset.css.
+ * Component-specific styling belongs with the component itself.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Inter — Font Faces
+ * -----------------------------------------------------------------------------
+ *
+ * Brika uses the static Inter font files:
+ *
+ *     400 — Regular
+ *     500 — Medium
+ *     600 — SemiBold
+ *     700 — Bold
+ * -----------------------------------------------------------------------------
+ */
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/Inter-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/Inter-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/Inter-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/Inter-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Root / Shared Tokens
+ * -----------------------------------------------------------------------------
+ *
+ * These values are independent of the active application theme.
+ */
+
+:root {
+    /*
+     * -------------------------------------------------------------------------
+     * Font
+     * -------------------------------------------------------------------------
+     */
+
+    --font-family-sans: "Inter", sans-serif;
+
+    /*
+     * -------------------------------------------------------------------------
+     * Brand
+     * -------------------------------------------------------------------------
+     *
+     * Brika brand colors remain stable across light and dark themes.
+     */
+
+    --color-brand-primary: #171717;
+    --color-brand-accent: #c9a227;
+    --color-brand-accent-dark: #a98416;
+    --color-brand-accent-light: #f5eac5;
+
+    /*
+     * -------------------------------------------------------------------------
+     * 3D Viewer
+     * -------------------------------------------------------------------------
+     *
+     * The viewer has its own dedicated dark environment and is independent
+     * from the application theme.
+     */
+
+    --color-viewer-background: #0d0d0d;
+    --color-viewer-surface: #171717;
+    --color-viewer-surface-elevated: #222222;
+    --color-viewer-grid: #34322d;
+    --color-viewer-text: #ffffff;
+    --color-viewer-text-muted: #a6a197;
+
+    /*
+     * -------------------------------------------------------------------------
+     * Common
+     * -------------------------------------------------------------------------
+     */
+
+    --color-transparent: transparent;
+
+    /*
+     * -------------------------------------------------------------------------
+     * Spacing
+     * -------------------------------------------------------------------------
+     */
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 20px;
+    --space-xxl: 24px;
+    --space-xxxl: 32px;
+    --space-huge: 40px;
+    --space-massive: 48px;
+    --space-section: 64px;
+
+    /*
+     * -------------------------------------------------------------------------
+     * Radius
+     * -------------------------------------------------------------------------
+     */
+
+    --radius-none: 0px;
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-xxl: 24px;
+    --radius-pill: 999px;
+
+    /*
+     * -------------------------------------------------------------------------
+     * Motion
+     * -------------------------------------------------------------------------
+     */
+
+    --motion-duration-instant: 0ms;
+    --motion-duration-fast: 150ms;
+    --motion-duration-normal: 200ms;
+    --motion-duration-slow: 300ms;
+
+    --motion-easing-linear: linear;
+    --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    --motion-easing-decelerated: cubic-bezier(0, 0, 0.2, 1);
+    --motion-easing-accelerated: cubic-bezier(0.4, 0, 1, 1);
+
+    /*
+     * -------------------------------------------------------------------------
+     * Default Theme
+     * -------------------------------------------------------------------------
+     *
+     * Light is the safe default before ThemeProvider applies the user's
+     * persisted or system-resolved preference.
+     */
+
+    color-scheme: light;
+
+    /*
+     * Backgrounds
+     */
+
+    --color-background-primary: #faf9f6;
+    --color-background-secondary: #f3f1eb;
+    --color-background-surface: #ffffff;
+
+    /*
+     * Text
+     */
+
+    --color-text-primary: #171717;
+    --color-text-secondary: #5f5b52;
+    --color-text-tertiary: #8a857a;
+    --color-text-inverse: #ffffff;
+    --color-text-muted: #a6a197;
+
+    /*
+     * Borders
+     */
+
+    --color-border-light: #e8e4da;
+    --color-border-medium: #d6d0c3;
+    --color-border-dark: #30302d;
+
+    /*
+     * Semantic states
+     */
+
+    --color-status-success: #3f7d58;
+    --color-status-success-background: #e5f0e8;
+
+    --color-status-warning: #b7791f;
+    --color-status-warning-background: #f7eedc;
+
+    --color-status-error: #b94a48;
+    --color-status-error-background: #f7e5e4;
+
+    --color-status-info: #527a8c;
+    --color-status-info-background: #e7eff2;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Light Theme
+ * -----------------------------------------------------------------------------
+ *
+ * Explicit light-theme selector.
+ *
+ * This mirrors the default :root values so that:
+ *
+ *     data-theme="light"
+ *
+ * behaves identically to the default document state.
+ */
+
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    /*
+     * Backgrounds
+     */
+
+    --color-background-primary: #faf9f6;
+    --color-background-secondary: #f3f1eb;
+    --color-background-surface: #ffffff;
+
+    /*
+     * Text
+     */
+
+    --color-text-primary: #171717;
+    --color-text-secondary: #5f5b52;
+    --color-text-tertiary: #8a857a;
+    --color-text-inverse: #ffffff;
+    --color-text-muted: #a6a197;
+
+    /*
+     * Borders
+     */
+
+    --color-border-light: #e8e4da;
+    --color-border-medium: #d6d0c3;
+    --color-border-dark: #30302d;
+
+    /*
+     * Semantic states
+     */
+
+    --color-status-success: #3f7d58;
+    --color-status-success-background: #e5f0e8;
+
+    --color-status-warning: #b7791f;
+    --color-status-warning-background: #f7eedc;
+
+    --color-status-error: #b94a48;
+    --color-status-error-background: #f7e5e4;
+
+    --color-status-info: #527a8c;
+    --color-status-info-background: #e7eff2;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Dark Theme
+ * -----------------------------------------------------------------------------
+ *
+ * Application-level dark theme.
+ *
+ * Brand and viewer tokens remain unchanged.
+ */
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    /*
+     * Backgrounds
+     */
+
+    --color-background-primary: #101010;
+    --color-background-secondary: #181818;
+    --color-background-surface: #202020;
+
+    /*
+     * Text
+     */
+
+    --color-text-primary: #f5f3ee;
+    --color-text-secondary: #c2beb5;
+    --color-text-tertiary: #969188;
+    --color-text-inverse: #171717;
+    --color-text-muted: #77736b;
+
+    /*
+     * Borders
+     */
+
+    --color-border-light: #2a2926;
+    --color-border-medium: #3a3834;
+    --color-border-dark: #55514a;
+
+    /*
+     * Semantic states
+     */
+
+    --color-status-success: #6faf86;
+    --color-status-success-background: #1b3023;
+
+    --color-status-warning: #d4a34a;
+    --color-status-warning-background: #332a18;
+
+    --color-status-error: #d47773;
+    --color-status-error-background: #351f1e;
+
+    --color-status-info: #7fa6b8;
+    --color-status-info-background: #1e2b31;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Document
+ * -----------------------------------------------------------------------------
+ */
+
+html {
+    font-family: var(--font-family-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: var(--color-text-primary);
+    background-color: var(--color-background-primary);
+
+    scroll-behavior: smooth;
+
+    /*
+     * Allows native browser controls such as form elements and scrollbars to
+     * follow the active light/dark theme.
+     */
+    color-scheme: light;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    color: var(--color-text-primary);
+    background-color: var(--color-background-primary);
+
+    min-width: 320px;
+    min-height: 100vh;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /*
+     * Prevent a visible mismatch between the document and the selected theme
+     * while the application is rendering.
+     */
+    transition:
+        background-color var(--motion-duration-normal)
+            var(--motion-easing-standard),
+        color var(--motion-duration-normal)
+            var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Root Application Container
+ * -----------------------------------------------------------------------------
+ */
+
+#root {
+    min-height: 100vh;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Headings
+ * -----------------------------------------------------------------------------
+ *
+ * Global heading defaults establish the base hierarchy. Components may use
+ * the typography tokens when they need more precise control.
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Paragraphs
+ * -----------------------------------------------------------------------------
+ */
+
+p {
+    color: var(--color-text-primary);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Links
+ * -----------------------------------------------------------------------------
+ */
+
+a {
+    color: inherit;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Buttons
+ * -----------------------------------------------------------------------------
+ */
+
+button {
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Form Controls
+ * -----------------------------------------------------------------------------
+ */
+
+input,
+textarea,
+select {
+    color: var(--color-text-primary);
+    background-color: var(--color-background-surface);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Placeholder
+ * -----------------------------------------------------------------------------
+ */
+
+::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Selection
+ * -----------------------------------------------------------------------------
+ */
+
+::selection {
+    color: var(--color-text-inverse);
+    background-color: var(--color-brand-accent);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Focus
+ * -----------------------------------------------------------------------------
+ *
+ * Use :focus-visible rather than :focus so keyboard users receive a clear
+ * focus indicator without adding unnecessary visual noise for pointer users.
+ */
+
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: 2px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Disabled Elements
+ * -----------------------------------------------------------------------------
+ */
+
+button:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+    cursor: not-allowed;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Images
+ * -----------------------------------------------------------------------------
+ */
+
+img {
+    height: auto;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ *
+ * Respect users who prefer reduced motion at the operating-system level.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body {
+        transition: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

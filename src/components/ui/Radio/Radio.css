@@ -1,0 +1,272 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Radio/Radio.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Radio button styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Field
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  min-width: 0;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Radio
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio {
+  display: inline-flex;
+  align-items: flex-start;
+
+  gap: var(--space-sm);
+
+  width: fit-content;
+
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Native Input
+ * -----------------------------------------------------------------------------
+ *
+ * The native radio remains in the accessibility tree while its visual
+ * presentation is replaced by the custom radio control.
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio__control {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+}
+
+.brika-radio__input {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+.brika-radio__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid var(--color-border-medium);
+  border-radius: 50%;
+
+  background-color: var(--color-background-surface);
+
+  pointer-events: none;
+
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Radio Dot
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio__dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-text-inverse);
+
+  opacity: 0;
+
+  transform: scale(0.5);
+
+  transition:
+    opacity var(--motion-duration-fast) var(--motion-easing-standard),
+    transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Checked State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio__input:checked + .brika-radio__circle {
+  border-color: var(--color-brand-accent);
+  background-color: var(--color-brand-accent);
+}
+
+.brika-radio__input:checked + .brika-radio__circle .brika-radio__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Hover
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio__input:hover:not(:disabled) + .brika-radio__circle {
+  border-color: var(--color-text-tertiary);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Focus
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio__input:focus-visible + .brika-radio__circle {
+  border-color: var(--color-brand-accent);
+
+  box-shadow: 0 0 0 2px var(--color-brand-accent-light);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Content
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio__content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  min-width: 0;
+
+  padding-top: 1px;
+}
+
+.brika-radio__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.brika-radio__required {
+  color: var(--color-status-error);
+}
+
+.brika-radio__description {
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Error
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio-field--error .brika-radio__circle {
+  border-color: var(--color-status-error);
+}
+
+.brika-radio-field--error
+  .brika-radio__input:focus-visible
+  + .brika-radio__circle {
+  border-color: var(--color-status-error);
+
+  box-shadow: 0 0 0 2px var(--color-status-error-background);
+}
+
+.brika-radio__error {
+  margin: 0;
+  margin-left: 28px;
+
+  color: var(--color-status-error);
+
+  font-family: var(--font-family-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Disabled
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-radio-field--disabled .brika-radio {
+  cursor: not-allowed;
+}
+
+.brika-radio__input:disabled {
+  cursor: not-allowed;
+}
+
+.brika-radio__input:disabled + .brika-radio__circle {
+  background-color: var(--color-background-secondary);
+  border-color: var(--color-border-light);
+
+  cursor: not-allowed;
+}
+
+.brika-radio-field--disabled .brika-radio__label,
+.brika-radio-field--disabled .brika-radio__description {
+  color: var(--color-text-muted);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-radio__circle,
+  .brika-radio__dot {
+    transition: none;
+  }
+}

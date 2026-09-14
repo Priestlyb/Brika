@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "brika-frontend",
+    "name": "Brika",
     "slug": "brika-frontend",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,9 +28,10 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "backgroundColor": "#F7F5F0",
+          "image": "./assets/images/Brika_logo.png",
+          "imageWidth": 180,
+          "resizeMode": "contain"
         }
       ]
     ],

@@ -1,0 +1,238 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Textarea/Textarea.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Textarea styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Field
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+
+    min-width: 0;
+}
+
+.brika-textarea-field--full-width {
+    width: 100%;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Label
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea-field__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.brika-textarea-field__required {
+    color: var(--color-status-error);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Textarea
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-sm);
+
+    color: var(--color-text-primary);
+    background-color: var(--color-background-surface);
+
+    font-family: var(--font-family-sans);
+
+    outline: none;
+
+    resize: vertical;
+
+    transition:
+        border-color var(--motion-duration-fast)
+            var(--motion-easing-standard),
+        box-shadow var(--motion-duration-fast)
+            var(--motion-easing-standard),
+        background-color var(--motion-duration-fast)
+            var(--motion-easing-standard);
+}
+
+.brika-textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Sizes
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea--sm {
+    min-height: 80px;
+    padding: var(--space-sm) var(--space-md);
+
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.brika-textarea--md {
+    min-height: 120px;
+    padding: var(--space-md) var(--space-lg);
+
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.brika-textarea--lg {
+    min-height: 160px;
+    padding: var(--space-lg) var(--space-xl);
+
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Default State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea--default:hover:not(:disabled) {
+    border-color: var(--color-text-tertiary);
+}
+
+.brika-textarea--default:focus {
+    border-color: var(--color-brand-accent);
+}
+
+.brika-textarea--default:focus-visible {
+    border-color: var(--color-brand-accent);
+    box-shadow:
+        0 0 0 2px var(--color-brand-accent-light);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Error State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea--error {
+    border-color: var(--color-status-error);
+}
+
+.brika-textarea--error:hover:not(:disabled) {
+    border-color: var(--color-status-error);
+}
+
+.brika-textarea--error:focus,
+.brika-textarea--error:focus-visible {
+    border-color: var(--color-status-error);
+    box-shadow:
+        0 0 0 2px var(--color-status-error-background);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Success State
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea--success {
+    border-color: var(--color-status-success);
+}
+
+.brika-textarea--success:hover:not(:disabled) {
+    border-color: var(--color-status-success);
+}
+
+.brika-textarea--success:focus,
+.brika-textarea--success:focus-visible {
+    border-color: var(--color-status-success);
+    box-shadow:
+        0 0 0 2px var(--color-status-success-background);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Disabled
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea:disabled {
+    color: var(--color-text-muted);
+    background-color: var(--color-background-secondary);
+
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Read Only
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea--readonly {
+    background-color: var(--color-background-secondary);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Messages
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-textarea-field__message {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-sans);
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+.brika-textarea-field__message--error {
+    color: var(--color-status-error);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+    .brika-textarea {
+        transition: none;
+    }
+}

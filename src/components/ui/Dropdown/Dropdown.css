@@ -1,0 +1,346 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/components/ui/Dropdown/Dropdown.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Dropdown menu styles.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Root
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown {
+  position: relative;
+
+  display: inline-flex;
+
+  width: fit-content;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Trigger
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-xs);
+
+  min-height: 40px;
+
+  padding-inline: var(--space-md);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-primary);
+  background-color: transparent;
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.brika-dropdown__trigger:hover {
+  background-color: var(--color-background-secondary);
+}
+
+.brika-dropdown__trigger:focus-visible {
+  border-color: var(--color-brand-accent);
+
+  box-shadow: 0 0 0 2px var(--color-brand-accent-light);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Trigger Icon
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__trigger-icon {
+  display: inline-flex;
+
+  width: 16px;
+  height: 16px;
+
+  transition: transform var(--motion-duration-fast)
+    var(--motion-easing-standard);
+}
+
+.brika-dropdown__trigger-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brika-dropdown__trigger-icon--open {
+  transform: rotate(180deg);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Menu
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__menu {
+  position: absolute;
+  z-index: 1000;
+
+  top: calc(100% + var(--space-xs));
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 180px;
+
+  padding: var(--space-xs);
+
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+
+  background-color: var(--color-background-surface);
+
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 10%),
+    0 2px 6px rgb(0 0 0 / 6%);
+
+  outline: none;
+
+  animation: brika-dropdown-enter var(--motion-duration-fast)
+    var(--motion-easing-standard);
+}
+
+.brika-dropdown--start .brika-dropdown__menu {
+  left: 0;
+}
+
+.brika-dropdown--end .brika-dropdown__menu {
+  right: 0;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Menu Widths
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__menu--auto {
+  width: max-content;
+}
+
+.brika-dropdown__menu--sm {
+  width: 180px;
+}
+
+.brika-dropdown__menu--md {
+  width: 240px;
+}
+
+.brika-dropdown__menu--lg {
+  width: 320px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Menu Item
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__item {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 36px;
+
+  gap: var(--space-sm);
+
+  padding: var(--space-sm) var(--space-md);
+
+  border: 0;
+  border-radius: var(--radius-xs);
+
+  color: var(--color-text-primary);
+  background-color: transparent;
+
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.brika-dropdown__item:hover,
+.brika-dropdown__item:focus-visible {
+  background-color: var(--color-background-secondary);
+}
+
+.brika-dropdown__item:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--color-brand-accent);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Item Icon
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  color: var(--color-text-secondary);
+}
+
+.brika-dropdown__item-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Item Label
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__item-label {
+  flex: 1;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Shortcut
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__item-shortcut {
+  flex-shrink: 0;
+
+  color: var(--color-text-tertiary);
+
+  font-family: var(--font-family-sans);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Danger
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__item--danger {
+  color: var(--color-status-error);
+}
+
+.brika-dropdown__item--danger .brika-dropdown__item-icon {
+  color: var(--color-status-error);
+}
+
+.brika-dropdown__item--danger:hover,
+.brika-dropdown__item--danger:focus-visible {
+  color: var(--color-status-error);
+
+  background-color: var(--color-status-error-background);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Disabled
+ * -----------------------------------------------------------------------------
+ */
+
+.brika-dropdown__item--disabled,
+.brika-dropdown__item:disabled {
+  color: var(--color-text-muted);
+
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.brika-dropdown__item--disabled:hover,
+.brika-dropdown__item:disabled:hover {
+  background-color: transparent;
+}
+
+.brika-dropdown__item--disabled .brika-dropdown__item-icon {
+  color: var(--color-text-muted);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Animation
+ * -----------------------------------------------------------------------------
+ */
+
+@keyframes brika-dropdown-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Reduced Motion
+ * -----------------------------------------------------------------------------
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brika-dropdown__trigger,
+  .brika-dropdown__trigger-icon,
+  .brika-dropdown__item {
+    transition: none;
+  }
+
+  .brika-dropdown__menu {
+    animation: none;
+  }
+}

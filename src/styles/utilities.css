@@ -1,0 +1,341 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: src/styles/utilities.css
+ * -----------------------------------------------------------------------------
+ * Brika Design System
+ *
+ * Small, reusable global utility classes.
+ *
+ * Utilities are intentionally limited to common application-wide behaviors:
+ *
+ * - Visibility
+ * - Display
+ * - Flex alignment
+ * - Text truncation
+ * - Overflow
+ * - Positioning
+ * - Screen-reader-only content
+ *
+ * Component-specific styling should remain inside the component that owns it.
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Display
+ * -----------------------------------------------------------------------------
+ */
+
+.u-block {
+    display: block;
+}
+
+.u-inline-block {
+    display: inline-block;
+}
+
+.u-inline {
+    display: inline;
+}
+
+.u-flex {
+    display: flex;
+}
+
+.u-inline-flex {
+    display: inline-flex;
+}
+
+.u-grid {
+    display: grid;
+}
+
+.u-hidden {
+    display: none;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Flex Alignment
+ * -----------------------------------------------------------------------------
+ */
+
+.u-items-center {
+    align-items: center;
+}
+
+.u-items-start {
+    align-items: flex-start;
+}
+
+.u-items-end {
+    align-items: flex-end;
+}
+
+.u-justify-center {
+    justify-content: center;
+}
+
+.u-justify-between {
+    justify-content: space-between;
+}
+
+.u-justify-start {
+    justify-content: flex-start;
+}
+
+.u-justify-end {
+    justify-content: flex-end;
+}
+
+.u-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.u-flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Width & Height
+ * -----------------------------------------------------------------------------
+ */
+
+.u-w-full {
+    width: 100%;
+}
+
+.u-h-full {
+    height: 100%;
+}
+
+.u-min-h-screen {
+    min-height: 100vh;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Overflow
+ * -----------------------------------------------------------------------------
+ */
+
+.u-overflow-hidden {
+    overflow: hidden;
+}
+
+.u-overflow-auto {
+    overflow: auto;
+}
+
+.u-overflow-x-auto {
+    overflow-x: auto;
+}
+
+.u-overflow-y-auto {
+    overflow-y: auto;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Position
+ * -----------------------------------------------------------------------------
+ */
+
+.u-relative {
+    position: relative;
+}
+
+.u-absolute {
+    position: absolute;
+}
+
+.u-fixed {
+    position: fixed;
+}
+
+.u-sticky {
+    position: sticky;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Text
+ * -----------------------------------------------------------------------------
+ */
+
+.u-text-left {
+    text-align: left;
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+.u-text-right {
+    text-align: right;
+}
+
+/**
+ * Single-line text truncation.
+ */
+.u-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/**
+ * Multi-line text truncation.
+ *
+ * Use the custom property:
+ *
+ *     --truncate-lines: 2;
+ *
+ * Defaults to two lines.
+ */
+.u-line-clamp {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--truncate-lines, 2);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * User Selection
+ * -----------------------------------------------------------------------------
+ */
+
+.u-select-none {
+    user-select: none;
+}
+
+.u-select-text {
+    user-select: text;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Pointer Events
+ * -----------------------------------------------------------------------------
+ */
+
+.u-pointer-events-none {
+    pointer-events: none;
+}
+
+.u-pointer-events-auto {
+    pointer-events: auto;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Visibility
+ * -----------------------------------------------------------------------------
+ */
+
+.u-visible {
+    visibility: visible;
+}
+
+.u-invisible {
+    visibility: hidden;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Screen Reader Only
+ * -----------------------------------------------------------------------------
+ *
+ * Visually hides content while keeping it available to assistive technology.
+ */
+.u-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+}
+
+/**
+ * Restore visually-hidden content when it receives keyboard focus.
+ */
+.u-sr-only-focusable:focus,
+.u-sr-only-focusable:focus-visible {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    white-space: normal;
+    clip: auto;
+    clip-path: none;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Responsive Visibility
+ * -----------------------------------------------------------------------------
+ *
+ * These utilities provide simple responsive visibility without creating a
+ * complete utility framework.
+ */
+
+/**
+ * Hidden by default, visible from tablet upward.
+ */
+.u-hidden-until-md {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .u-hidden-until-md {
+        display: initial;
+    }
+}
+
+/**
+ * Hidden by default, visible from desktop upward.
+ */
+.u-hidden-until-lg {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .u-hidden-until-lg {
+        display: initial;
+    }
+}
+
+/**
+ * Visible on mobile, hidden from tablet upward.
+ */
+.u-mobile-only {
+    display: initial;
+}
+
+@media (min-width: 768px) {
+    .u-mobile-only {
+        display: none;
+    }
+}
+
+/**
+ * Visible on tablet/desktop, hidden on mobile.
+ */
+.u-desktop-only {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .u-desktop-only {
+        display: initial;
+    }
+}
