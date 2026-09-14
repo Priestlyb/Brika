@@ -44,3 +44,11 @@ yarn-error.*
 # Generated native folders
 /ios
 /android
+
+# Local AI / agent configuration
+.claude/
+AGENTS.md
+CLAUDE.md
+
+# Repository files not intended for publication
+LICENSE
